@@ -19,6 +19,7 @@ db.run(`
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         nombre TEXT NOT NULL,
         precio REAL NOT NULL,
+        imagen TEXT not NULL,
         cantidad INTEGER NOT NULL
     )
 `);
