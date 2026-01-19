@@ -12,7 +12,7 @@ async function cargarProductos() {
 
     productos.forEach(p => {
         const li = document.createElement('li');
-        li.textContent = `${p.nombre} - $${p.precio}`;
+        li.textContent = `${p.nombre} - $${p.precio} -$${p.imagen}`;
 
         const btn = document.createElement('button');
         btn.textContent = 'Eliminar';
@@ -32,7 +32,9 @@ form.addEventListener('submit', async (e) => {
     const producto = {
         nombre: nombre.value,
         precio: precio.value,
+        imagen: imagen.value,
         cantidad: cantidad.value
+        
     };
 
     await fetch('/api/productos', {
