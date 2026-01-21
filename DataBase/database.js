@@ -13,18 +13,25 @@ const db = new sqlite3.Database(dbPath, (error) => {
     }
 });
 
-// Crear tabla si no existe
-db.run(`
-    CREATE TABLE IF NOT EXISTS productos (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        nombre TEXT NOT NULL,
-        precio REAL NOT NULL,
-        imagen TEXT NOT NULL,
-        cantidad INTEGER NOT NULL
-    )
-`);
 
+//----------------------TABLAS-------------------------
+
+db.run(`
+        CREATE TABLE IF NOT EXISTS productos (
+            id_producto INTEGER PRIMARY KEY AUTOINCREMENT,
+            Nombre_Pro TEXT NOT NULL,
+            Costo REAL NOT NULL,  -- DECIMAL 
+            MARCA TEXT NOT NULL,
+            TALLA TEXT NOT NULL,
+            CATEGORIA TEXT NOT NULL,
+            IMAGEN TEXT NOT NULL
+        )
+    `);
+
+<<<<<<< HEAD
 module.exports = db;
+=======
+>>>>>>> 10b67c0cee9748fc02e2ffb279a75de17da4c4f6
 
 db.run(`CREATE TABLE IF NOT EXISTS USUARIO (
     id_usuario INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -35,20 +42,6 @@ db.run(`CREATE TABLE IF NOT EXISTS USUARIO (
     Correo TEXT NOT NULL,
     Contrasena TEXT NOT NULL)
 `);
-
-
-
-db.run(`
-        CREATE TABLE IF NOT EXISTS Producto (
-            id_producto INTEGER PRIMARY KEY AUTOINCREMENT,
-            Nombre_Pro TEXT NOT NULL,
-            Costo REAL NOT NULL,  -- DECIMAL 
-            MARCA TEXT NOT NULL,
-            TALLA TEXT NOT NULL,
-            CATEGORIA TEXT NOT NULL,
-            IMAGEN TEXT NOT NULL
-        )
-    `);
 
 
 
@@ -68,8 +61,12 @@ db.run(`
         Id_compra INTEGER PRIMARY KEY AUTOINCREMENT,
         id_usuario INTEGER NOT NULL,
         total REAL NOT NULL,       
-        CVV TEXT NOT NULL,
         Fecha_compra TEXT NOT NULL,
         FOREIGN KEY (id_usuario) REFERENCES USUARIO(id_usuario)
     )
 `);
+
+
+module.exports = db;
+
+//----------------------registros-------------------------
