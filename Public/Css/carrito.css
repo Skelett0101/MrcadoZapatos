@@ -1,0 +1,144 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: 0;
+    background: #f5f5f5;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* IZQUIERDA */
+.cart {
+    width: 65%;
+    background: #fff;
+    padding: 30px;
+}
+
+.back {
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+}
+
+.cart h1 {
+    margin: 20px 0;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 20px 0;
+}
+
+.item img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.info {
+    flex: 1;
+}
+
+.info h3 {
+    margin: 0;
+}
+
+.brand {
+    font-size: 14px;
+    color: #777;
+}
+
+.price {
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.delete {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.qty {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+}
+
+.qty input {
+    width: 60px;
+    padding: 5px;
+}
+
+/* DERECHA */
+.summary {
+    width: 35%;
+    background: #e0e0e0;
+    padding: 30px;
+}
+
+.summary h2 {
+    margin-bottom: 20px;
+}
+
+.summary ul {
+    list-style: none;
+    padding: 0;
+}
+
+.summary li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.promo {
+    display: flex;
+    margin: 20px 0;
+}
+
+.promo input {
+    flex: 1;
+    padding: 8px;
+}
+
+.promo button {
+    padding: 8px 15px;
+    background: #000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.checkout {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #000;
+    background: none;
+    font-size: 16px;
+    cursor: pointer;
+}
