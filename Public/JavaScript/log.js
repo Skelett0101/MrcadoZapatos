@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (response.ok) {
             alert('Login exitoso');
             sessionStorage.setItem('usuario', JSON.stringify(data.usuario));
-            window.location.href = 'index.html';
+            window.location.href = 'Principal.html';
         } else {
             alert(data.mensaje);
         }

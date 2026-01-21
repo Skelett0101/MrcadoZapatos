@@ -44,12 +44,40 @@ async function buscarProductos(texto) {
                 <div class="card-info">
                     <h3>${p.nombre}</h3>
                     <span class="price">$${p.precio}</span>
-                    <button class="add-btn">Agregar</button>
+                    <button class="add-btn" onclick="agregarAlCarrito(${p.id_producto})">Agregar</button>
+
                 </div>
             </article>
         `;
     });
 }
+
+
+function agregarAlCarrito(id_producto) {
+
+    const usuario = JSON.parse(sessionStorage.getItem('usuario'));
+
+    if (!usuario) {
+        alert('Debes iniciar sesión');
+        return;
+    }
+
+    fetch('/api/carrito/agregar', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            id_usuario: usuario.id_usuario,
+            id_producto: id_producto,
+            cantidad: 1
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        alert('Producto agregado al carrito');
+    })
+    .catch(err => console.error(err));
+}
+
 
 
 
@@ -88,7 +116,7 @@ async function cargarProductos() {
                             $ ${p.costo}
                             
                         </span>
-                        <button class="add-btn">Agregar</button>
+                        <button class="add-btn" onclick="agregarAlCarrito(${p.id_producto})">Agregar</button>
                     </div>
                 </div>
             </article>
