@@ -1,50 +1,44 @@
-// Importamos la base de datos
 const db = require('../DataBase/database');
 
-/*
- OBTENER PRODUCTOS
-*/
+/* ===== MOSTRAR PRODUCTOS ===== */
 exports.obtenerProductos = (req, res) => {
-    db.all('SELECT * FROM productos', [], (error, filas) => {
-        if (error) {
-            res.status(500).json({ error: error.message });
+    db.all('SELECT * FROM productos', [], (err, rows) => {
+        if (err) {
+            res.status(500).json(err);
         } else {
-            res.json(filas);
+            res.json(rows);
         }
     });
 };
 
-/*
- CREAR PRODUCTO
-*/
+/* ===== AGREGAR PRODUCTO ===== */
 exports.crearProducto = (req, res) => {
-    const { nombre, precio, imagen, cantidad } = req.body;
+    const { nombre, costo, talla, categoria, imagen } = req.body;
 
     const sql = `
-        INSERT INTO productos (nombre, precio, imagen, cantidad)
-        VALUES (?, ?, ?, ?)
+        INSERT INTO productos (nombre, costo, talla, categoria, imagen)
+        VALUES (?, ?, ?, ?, ?)
     `;
 
-    db.run(sql, [nombre, precio, imagen, cantidad], function (error) {
-        if (error) {
-            res.status(500).json({ error: error.message });
+    db.run(sql, [nombre, costo, talla, categoria, imagen], function (err) {
+        if (err) {
+            res.status(500).json(err);
         } else {
             res.json({ id: this.lastID });
         }
     });
 };
 
-/*
- ELIMINAR PRODUCTO
-*/
+/* ===== ELIMINAR PRODUCTO ===== */
 exports.eliminarProducto = (req, res) => {
     const { id } = req.params;
 
-    db.run('DELETE FROM productos WHERE id = ?', id, (error) => {
-        if (error) {
-            res.status(500).json({ error: error.message });
-        } else {
-            res.json({ mensaje: 'Producto eliminado' });
+    db.run(
+        'DELETE FROM productos WHERE id_producto = ?',
+        id,
+        (err) => {
+            if (err) res.status(500).json(err);
+            else res.json({ mensaje: 'Producto eliminado' });
         }
-    });
+    );
 };

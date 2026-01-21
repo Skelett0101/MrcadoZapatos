@@ -2,30 +2,74 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Productos</title>
+    <title>Tienda - Productos</title>
+
+    <!-- CSS -->
     <link rel="stylesheet" href="../Css/styles.css">
 </head>
 <body>
-            //Mireya .
-<h1>Gestión de Productos</h1>
 
-//hola
-<form id="formProducto">
-    <input id="nombre" placeholder="Nombre" required>
-    <input id="precio" type="number" placeholder="Precio" required>
-    <input id="cantidad" type="number" placeholder="Cantidad" required>
-    <input id="imagen" type="text" placeholder="URL de la imagen" required>
-    <button type="submit">Guardar</button>
+    <h1>Gestión de Productos</h1>
 
+    <!-- ================= FORMULARIO ================= -->
+    <!-- 
+        Este formulario NO guarda en la BD directamente.
+        Solo captura datos y se los pasa a app.js
+    -->
+    <form id="formProducto">
 
-    <button type="button" onclick="location.href='Principal.html'">Ir a Principal</button>
+        <input
+            type="text"
+            id="nombre"
+            placeholder="Nombre del producto"
+            required
+        >
 
-</form>
+        <input
+            type="number"
+            id="costo"
+            placeholder="Costo"
+            required
+            step="0.01"
+        >
 
-tovar
-javi
-<ul id="listaProductos"></ul>
+        <input
+            type="text"
+            id="talla"
+            placeholder="Talla"
+            required
+        >
 
-<script src="../JavaScript/app.js"></script>
+        <input
+            type="text"
+            id="categoria"
+            placeholder="Categoría"
+            required
+        >
+
+        <input
+            type="text"
+            id="imagen"
+            placeholder="URL de imagen"
+            required
+        >
+
+        <button type="submit">Agregar producto</button>
+        <button type="button" onclick="location.href='Principal.html'">Ir a Principal</button>
+
+    </form>
+
+    <hr>
+
+    <!-- ================= LISTA ================= -->
+    <!-- 
+        Aquí app.js inyecta dinámicamente los productos
+        usando el JSON que viene de la API
+    -->
+    <ul id="listaProductos"></ul>
+
+    <!-- JavaScript -->
+    <script src="../JavaScript/app.js"></script>
+
 </body>
 </html>

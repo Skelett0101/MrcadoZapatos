@@ -1,40 +1,36 @@
-const form = document.getElementById('formProducto');
 const lista = document.getElementById('listaProductos');
+const form = document.getElementById('formProducto');
 
-/*
- OBTENER PRODUCTOS
-*/
+/* MOSTRAR */
 async function cargarProductos() {
-    const response = await fetch('/api/productos');
-    const productos = await response.json();
+    const res = await fetch('/api/productos');
+    const productos = await res.json();
 
     lista.innerHTML = '';
 
     productos.forEach(p => {
         const li = document.createElement('li');
-        li.textContent = `${p.nombre} - $${p.precio} -$${p.imagen}`;
+        li.textContent = `${p.nombre} - $${p.costo}`;
 
         const btn = document.createElement('button');
         btn.textContent = 'Eliminar';
-        btn.onclick = () => eliminarProducto(p.id);
+        btn.onclick = () => eliminarProducto(p.id_producto);
 
         li.appendChild(btn);
         lista.appendChild(li);
     });
 }
 
-/*
- CREAR PRODUCTO
-*/
+/* AGREGAR */
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const producto = {
         nombre: nombre.value,
-        precio: precio.value,
-        imagen: imagen.value,
-        cantidad: cantidad.value
-        
+        costo: costo.value,
+        talla: talla.value,
+        categoria: categoria.value,
+        imagen: imagen.value
     };
 
     await fetch('/api/productos', {
@@ -47,15 +43,10 @@ form.addEventListener('submit', async (e) => {
     cargarProductos();
 });
 
-/*
- ELIMINAR PRODUCTO
-*/
+/* ELIMINAR */
 async function eliminarProducto(id) {
-    await fetch(`/api/productos/${id}`, {
-        method: 'DELETE'
-    });
+    await fetch(`/api/productos/${id}`, { method: 'DELETE' });
     cargarProductos();
 }
 
-// Carga inicial
 cargarProductos();

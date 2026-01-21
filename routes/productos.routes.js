@@ -1,16 +1,14 @@
 const express = require('express');
 const router = express.Router();
-
-// Importamos el controlador
-const productosController = require('../controllers/productos.controller');
+const controller = require('../controllers/productos.controller');
 
 // GET /api/productos
-router.get('/', productosController.obtenerProductos);
+router.get('/', controller.obtenerProductos);
 
 // POST /api/productos
-router.post('/', productosController.crearProducto);
+router.post('/', controller.crearProducto);
 
 // DELETE /api/productos/:id
-router.delete('/:id', productosController.eliminarProducto);
+router.delete('/:id', controller.eliminarProducto);
 
 module.exports = router;

@@ -1,8 +1,8 @@
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 
-// Ruta física del archivo .db
-const dbPath = path.join(__dirname, 'productos.db');
+// Ruta del archivo de base de datos
+const dbPath = path.join(__dirname, 'tienda.db');
 
 // Crear o abrir la base de datos
 const db = new sqlite3.Database(dbPath, (error) => {
@@ -13,69 +13,72 @@ const db = new sqlite3.Database(dbPath, (error) => {
     }
 });
 
+/* ================= TABLAS ================= */
 
-//----------------------TABLAS-------------------------
-
+// PRODUCTOS
 db.run(`
-        CREATE TABLE IF NOT EXISTS productos (
-            id_producto INTEGER PRIMARY KEY AUTOINCREMENT,
-            Nombre_Pro TEXT NOT NULL,
-            Costo REAL NOT NULL,  -- DECIMAL 
-            MARCA TEXT NOT NULL,
-            TALLA TEXT NOT NULL,
-            CATEGORIA TEXT NOT NULL,
-            IMAGEN TEXT NOT NULL
-        )
-    `);
-
-
-db.run(`CREATE TABLE IF NOT EXISTS USUARIO (
-    id_usuario INTEGER PRIMARY KEY AUTOINCREMENT,
-    Nombre_usu TEXT NOT NULL,
-    Apat TEXT NOT NULL,
-    Amat TEXT NOT NULL,
-    Domicilio TEXT NOT NULL,
-    Correo TEXT NOT NULL,
-    Contrasena TEXT NOT NULL)
-`);
-
-
-
-db.run(`
-        CREATE TABLE IF NOT EXISTS TARJETA (
-            id_TARJETA INTEGER PRIMARY KEY AUTOINCREMENT,
-            id_usuario INTEGER NOT NULL,
-            FECHA TEXT NOT NULL,
-            CVV TEXT NOT NULL,
-            NUMERO_TARJETA TEXT NOT NULL,
-            FOREIGN KEY (id_usuario) REFERENCES USUARIO(id_usuario)
-        )
-    `);
-
-    db.run(`
-    CREATE TABLE IF NOT EXISTS CARRO_COMPRA (
-        Id_compra INTEGER PRIMARY KEY AUTOINCREMENT,
-        id_usuario INTEGER NOT NULL,
-        total REAL NOT NULL,       
-        Fecha_compra TEXT NOT NULL,
-        FOREIGN KEY (id_usuario) REFERENCES USUARIO(id_usuario)
+    CREATE TABLE IF NOT EXISTS productos (
+        id_producto INTEGER PRIMARY KEY AUTOINCREMENT,
+        nombre TEXT NOT NULL,
+        costo REAL NOT NULL,
+        talla TEXT NOT NULL,
+        categoria TEXT NOT NULL,
+        imagen TEXT NOT NULL
     )
 `);
 
-//---------------tabla detalle_carrito -------------
+// CATEGORIAS
 db.run(`
-    CREATE TABLE IF NOT EXISTS DETALLE_CARRITO (
+    CREATE TABLE IF NOT EXISTS categorias (
+        id_categoria INTEGER PRIMARY KEY AUTOINCREMENT,
+        nombre TEXT NOT NULL UNIQUE
+    )
+`);
+
+// USUARIO
+db.run(`
+    CREATE TABLE IF NOT EXISTS usuario (
+        id_usuario INTEGER PRIMARY KEY AUTOINCREMENT,
+        nombre TEXT NOT NULL,
+        domicilio TEXT NOT NULL,
+        correo TEXT NOT NULL UNIQUE,
+        contrasena TEXT NOT NULL
+    )
+`);
+
+// TARJETA
+db.run(`
+    CREATE TABLE IF NOT EXISTS tarjeta (
+        id_tarjeta INTEGER PRIMARY KEY AUTOINCREMENT,
+        id_usuario INTEGER NOT NULL,
+        fecha TEXT NOT NULL,
+        cvv TEXT NOT NULL,
+        numero_tarjeta TEXT NOT NULL,
+        FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)
+    )
+`);
+
+// CARRITO
+db.run(`
+    CREATE TABLE IF NOT EXISTS carrito_compra (
+        id_compra INTEGER PRIMARY KEY AUTOINCREMENT,
+        id_usuario INTEGER NOT NULL,
+        total REAL NOT NULL,
+        fecha_compra TEXT NOT NULL,
+        FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)
+    )
+`);
+
+// DETALLE CARRITO
+db.run(`
+    CREATE TABLE IF NOT EXISTS detalle_carrito (
         id_detalle INTEGER PRIMARY KEY AUTOINCREMENT,
         id_usuario INTEGER NOT NULL,
         id_producto INTEGER NOT NULL,
         cantidad INTEGER NOT NULL,
-        FOREIGN KEY (id_usuario) REFERENCES USUARIO(id_usuario),
+        FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario),
         FOREIGN KEY (id_producto) REFERENCES productos(id_producto)
     )
 `);
 
-
-
 module.exports = db;
-
-//----------------------registros-------------------------
