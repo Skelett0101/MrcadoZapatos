@@ -16,20 +16,17 @@ const db = new sqlite3.Database(dbPath, (error) => {
 
 //----------------------TABLAS-------------------------
 
-// Crear tabla si no existe
 db.run(`
-    CREATE TABLE IF NOT EXISTS productos (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        nombre TEXT NOT NULL,
-        precio REAL NOT NULL,
-        imagen TEXT NOT NULL,
-        cantidad INTEGER NOT NULL
-    )
-`);
-
-module.exports = db;
-
-db.run(`DROP TABLE productos; )`);
+        CREATE TABLE IF NOT EXISTS productos (
+            id_producto INTEGER PRIMARY KEY AUTOINCREMENT,
+            Nombre_Pro TEXT NOT NULL,
+            Costo REAL NOT NULL,  -- DECIMAL 
+            MARCA TEXT NOT NULL,
+            TALLA TEXT NOT NULL,
+            CATEGORIA TEXT NOT NULL,
+            IMAGEN TEXT NOT NULL
+        )
+    `);
 
 
 db.run(`CREATE TABLE IF NOT EXISTS USUARIO (
@@ -41,20 +38,6 @@ db.run(`CREATE TABLE IF NOT EXISTS USUARIO (
     Correo TEXT NOT NULL,
     Contrasena TEXT NOT NULL)
 `);
-
-
-
-db.run(`
-        CREATE TABLE IF NOT EXISTS Producto (
-            id_producto INTEGER PRIMARY KEY AUTOINCREMENT,
-            Nombre_Pro TEXT NOT NULL,
-            Costo REAL NOT NULL,  -- DECIMAL 
-            MARCA TEXT NOT NULL,
-            TALLA TEXT NOT NULL,
-            CATEGORIA TEXT NOT NULL,
-            IMAGEN TEXT NOT NULL
-        )
-    `);
 
 
 
@@ -78,5 +61,8 @@ db.run(`
         FOREIGN KEY (id_usuario) REFERENCES USUARIO(id_usuario)
     )
 `);
+
+
+module.exports = db;
 
 //----------------------registros-------------------------
