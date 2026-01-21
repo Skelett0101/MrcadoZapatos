@@ -35,7 +35,7 @@ async function cargarProductos() {
 
                     <div class="row-bottom">
                         <span class="price">
-                            $ ${p.precio}
+                            $ ${p.costo}
                             
                         </span>
                         <button class="add-btn">Agregar</button>
