@@ -28,10 +28,6 @@ db.run(`
         )
     `);
 
-<<<<<<< HEAD
-module.exports = db;
-=======
->>>>>>> 10b67c0cee9748fc02e2ffb279a75de17da4c4f6
 
 db.run(`CREATE TABLE IF NOT EXISTS USUARIO (
     id_usuario INTEGER PRIMARY KEY AUTOINCREMENT,
