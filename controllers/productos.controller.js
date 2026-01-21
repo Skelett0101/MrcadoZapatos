@@ -18,14 +18,14 @@ exports.obtenerProductos = (req, res) => {
  CREAR PRODUCTO
 */
 exports.crearProducto = (req, res) => {
-    const { nombre, precio, cantidad } = req.body;
+    const { nombre, precio, imagen, cantidad } = req.body;
 
     const sql = `
-        INSERT INTO productos (nombre, precio, cantidad)
-        VALUES (?, ?, ?)
+        INSERT INTO productos (nombre, precio, imagen, cantidad)
+        VALUES (?, ?, ?, ?)
     `;
 
-    db.run(sql, [nombre, precio, cantidad], function (error) {
+    db.run(sql, [nombre, precio, imagen, cantidad], function (error) {
         if (error) {
             res.status(500).json({ error: error.message });
         } else {
