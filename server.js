@@ -9,6 +9,8 @@ const path = require('path');
 
 // 4. Importamos nuestras rutas
 const productosRoutes = require('./routes/productos.routes');
+const carritoRoutes = require('./routes/carrito.routes');
+
 
 // 5. Creamos la aplicación
 const app = express();
@@ -35,6 +37,8 @@ app.use(express.static(path.join(__dirname, 'Public')));
  RUTAS
 */
 app.use('/api/productos', productosRoutes);
+app.use('/api/carrito', carritoRoutes);
+
 
 /*
  INICIAR SERVIDOR

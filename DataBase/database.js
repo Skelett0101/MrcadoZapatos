@@ -62,6 +62,19 @@ db.run(`
     )
 `);
 
+//---------------tabla detalle_carrito -------------
+db.run(`
+    CREATE TABLE IF NOT EXISTS DETALLE_CARRITO (
+        id_detalle INTEGER PRIMARY KEY AUTOINCREMENT,
+        id_usuario INTEGER NOT NULL,
+        id_producto INTEGER NOT NULL,
+        cantidad INTEGER NOT NULL,
+        FOREIGN KEY (id_usuario) REFERENCES USUARIO(id_usuario),
+        FOREIGN KEY (id_producto) REFERENCES productos(id_producto)
+    )
+`);
+
+
 
 module.exports = db;
 
