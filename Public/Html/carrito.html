@@ -2,93 +2,61 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Carrito de compras</title>
-    <link rel="stylesheet" href="../Css/carrito.css">
+    <title>Carrito</title>
+    <link rel="stylesheet" href="carrito.css">
 </head>
 <body>
 
 <div class="container">
 
-    <!-- LADO IZQUIERDO -->
+    <!-- SECCIÓN CARRITO -->
     <section class="cart">
         <a href="#" class="back">← Continuar comprando</a>
         <h1>Mi carrito de compras</h1>
 
-        <!-- ITEM -->
+        <!-- ITEM (se repetirá dinámicamente) -->
         <div class="item">
-            <img src="img/shoes1.jpg" alt="Running Shoes">
+            <img src="" alt="Producto">
 
             <div class="info">
-                <h3>Running Shoes</h3>
-                <p class="brand">Alex Runner</p>
-                <p class="price">$50</p>
+                <h3 class="product-name">Nombre del producto</h3>
+                <p class="product-brand">Marca / descripción</p>
             </div>
 
             <div class="actions">
-                <button class="delete">🗑</button>
+                <button class="delete" title="Eliminar">🗑</button>
+
                 <div class="qty">
                     <label>Cantidad</label>
-                    <input type="number" value="1" min="1">
+                    <input type="number" min="1">
                 </div>
             </div>
         </div>
 
-        <div class="item">
-            <img src="img/shoes2.jpg" alt="Casual Sneakers">
-
-            <div class="info">
-                <h3>Casual Sneakers</h3>
-                <p class="brand">Jordan Style</p>
-                <p class="price">$30</p>
-            </div>
-
-            <div class="actions">
-                <button class="delete">🗑</button>
-                <div class="qty">
-                    <label>Cantidad</label>
-                    <input type="number" value="1" min="1">
-                </div>
-            </div>
-        </div>
-
-        <div class="item">
-            <img src="img/shoes3.jpg" alt="Leather Boots">
-
-            <div class="info">
-                <h3>Leather Boots</h3>
-                <p class="brand">Emma Style</p>
-                <p class="price">$70</p>
-            </div>
-
-            <div class="actions">
-                <button class="delete">🗑</button>
-                <div class="qty">
-                    <label>Cantidad</label>
-                    <input type="number" value="1" min="1">
-                </div>
-            </div>
-        </div>
+        <!-- FIN ITEM -->
 
     </section>
 
-    <!-- LADO DERECHO -->
+    <!-- RESUMEN -->
     <aside class="summary">
         <h2>Mi pedido</h2>
 
-        <ul>
-            <li><span>1x Running Shoes</span><span>$50</span></li>
-            <li><span>1x Casual Sneakers</span><span>$30</span></li>
-            <li><span>1x Leather Boots</span><span>$70</span></li>
+        <ul class="order-list">
+            <!-- Se llena dinámicamente -->
+            <li>
+                <span class="order-product">Producto</span>
+                <span class="order-qty">Cantidad</span>
+            </li>
         </ul>
 
         <div class="promo">
-            <input type="text" placeholder="Enter promo code">
+            <input type="text" placeholder="Código promocional">
             <button>Aplicar</button>
         </div>
 
         <div class="total">
             <span>Total</span>
-            <span>$150</span>
+            <span class="total-value"></span>
         </div>
 
         <button class="checkout">Finalizar compra</button>
