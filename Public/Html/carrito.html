@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Carrito de compras</title>
+    <link rel="stylesheet" href="../Css/carrito.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- LADO IZQUIERDO -->
+    <section class="cart">
+        <a href="#" class="back">← Continuar comprando</a>
+        <h1>Mi carrito de compras</h1>
+
+        <!-- ITEM -->
+        <div class="item">
+            <img src="img/shoes1.jpg" alt="Running Shoes">
+
+            <div class="info">
+                <h3>Running Shoes</h3>
+                <p class="brand">Alex Runner</p>
+                <p class="price">$50</p>
+            </div>
+
+            <div class="actions">
+                <button class="delete">🗑</button>
+                <div class="qty">
+                    <label>Cantidad</label>
+                    <input type="number" value="1" min="1">
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="img/shoes2.jpg" alt="Casual Sneakers">
+
+            <div class="info">
+                <h3>Casual Sneakers</h3>
+                <p class="brand">Jordan Style</p>
+                <p class="price">$30</p>
+            </div>
+
+            <div class="actions">
+                <button class="delete">🗑</button>
+                <div class="qty">
+                    <label>Cantidad</label>
+                    <input type="number" value="1" min="1">
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="img/shoes3.jpg" alt="Leather Boots">
+
+            <div class="info">
+                <h3>Leather Boots</h3>
+                <p class="brand">Emma Style</p>
+                <p class="price">$70</p>
+            </div>
+
+            <div class="actions">
+                <button class="delete">🗑</button>
+                <div class="qty">
+                    <label>Cantidad</label>
+                    <input type="number" value="1" min="1">
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- LADO DERECHO -->
+    <aside class="summary">
+        <h2>Mi pedido</h2>
+
+        <ul>
+            <li><span>1x Running Shoes</span><span>$50</span></li>
+            <li><span>1x Casual Sneakers</span><span>$30</span></li>
+            <li><span>1x Leather Boots</span><span>$70</span></li>
+        </ul>
+
+        <div class="promo">
+            <input type="text" placeholder="Enter promo code">
+            <button>Aplicar</button>
+        </div>
+
+        <div class="total">
+            <span>Total</span>
+            <span>$150</span>
+        </div>
+
+        <button class="checkout">Finalizar compra</button>
+    </aside>
+
+</div>
+
+</body>
+</html>
