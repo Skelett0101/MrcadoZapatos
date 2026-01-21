@@ -70,3 +70,34 @@ exports.loginUsuario = (req, res) => {
         });
     });
 };
+
+
+exports.registrarUsuario = (req, res) => {
+
+    const { nombre, domicilio, correo, contrasena } = req.body;
+
+    if (!nombre || !domicilio || !correo || !contrasena) {
+        return res.status(400).json({ mensaje: 'Datos incompletos' });
+    }
+
+    const sql = `
+        INSERT INTO usuario (nombre, domicilio, correo, contrasena)
+        VALUES (?, ?, ?, ?)
+    `;
+
+    db.run(sql, [nombre, domicilio, correo, contrasena], function (err) {
+
+        if (err) {
+            if (err.message.includes('UNIQUE')) {
+                return res.status(409).json({ mensaje: 'El correo ya está registrado' });
+            }
+            return res.status(500).json(err);
+        }
+
+        res.json({
+            mensaje: 'Usuario registrado correctamente',
+            id_usuario: this.lastID
+        });
+    });
+};
+
