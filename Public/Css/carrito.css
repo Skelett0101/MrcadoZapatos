@@ -5,7 +5,7 @@
 
 body {
     margin: 0;
-    background: #f5f5f5;
+    background-color: #f4f4f4;
 }
 
 .container {
@@ -13,10 +13,10 @@ body {
     min-height: 100vh;
 }
 
-/* IZQUIERDA */
+/* CARRITO */
 .cart {
     width: 65%;
-    background: #fff;
+    background: #ffffff;
     padding: 30px;
 }
 
@@ -40,6 +40,7 @@ body {
 .item img {
     width: 90px;
     height: 90px;
+    background: #e0e0e0;
     object-fit: cover;
     margin-right: 20px;
 }
@@ -52,14 +53,9 @@ body {
     margin: 0;
 }
 
-.brand {
+.info p {
     font-size: 14px;
     color: #777;
-}
-
-.price {
-    font-weight: bold;
-    margin-top: 5px;
 }
 
 .actions {
@@ -86,7 +82,7 @@ body {
     padding: 5px;
 }
 
-/* DERECHA */
+/* RESUMEN */
 .summary {
     width: 35%;
     background: #e0e0e0;
@@ -97,12 +93,13 @@ body {
     margin-bottom: 20px;
 }
 
-.summary ul {
+.order-list {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
-.summary li {
+.order-list li {
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
@@ -129,7 +126,7 @@ body {
 .total {
     display: flex;
     justify-content: space-between;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     margin: 20px 0;
 }
