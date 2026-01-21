@@ -1,16 +1,1 @@
-<<<<<<< HEAD
-hola chavos
-sjjsjs
-comid
-
-
-
-
-cris
-=======
-ok
->>>>>>> 9674907932c40bacf5805f992b945d6c0cc20204
-
-
-
-hola
+commit 1
