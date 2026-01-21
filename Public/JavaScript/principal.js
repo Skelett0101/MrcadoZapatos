@@ -30,7 +30,7 @@ async function cargarProductos() {
                 <div class="card-info">
                     <div class="row-top">
                         <h3>${p.nombre}</h3>
-                        <span>❤</span>
+                        
                     </div>
 
                     <div class="row-bottom">
