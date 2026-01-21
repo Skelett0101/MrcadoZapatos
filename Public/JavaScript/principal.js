@@ -3,6 +3,56 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+const searchBtn = document.querySelector('.search-btn');
+const searchInput = document.getElementById('searchInput');
+
+searchBtn.addEventListener('click', () => {
+    const texto = searchInput.value.trim();
+
+    if (texto !== '') {
+        buscarProductos(texto);
+    }
+});
+
+
+async function buscarProductos(texto) {
+    const response = await fetch(`/api/productos/buscar/${texto}`);
+    const productos = await response.json();
+
+    const section = document.getElementById('searchResultsSection');
+    const container = document.getElementById('searchResults');
+    const message = document.getElementById('searchMessage');
+
+    // Mostrar la sección de resultados
+    section.style.display = 'block';
+
+    // Limpiar contenido previo
+    container.innerHTML = '';
+    message.style.display = 'none';
+
+    // Si no hay resultados
+    if (productos.length === 0) {
+        message.style.display = 'block';
+        return;
+    }
+
+    // Renderizar productos encontrados
+    productos.forEach(p => {
+        container.innerHTML += `
+            <article class="product-card">
+                <img src="${p.imagen}" alt="${p.nombre}">
+                <div class="card-info">
+                    <h3>${p.nombre}</h3>
+                    <span class="price">$${p.precio}</span>
+                    <button class="add-btn">Agregar</button>
+                </div>
+            </article>
+        `;
+    });
+}
+
+
+
 
 // FUNCIÓN ASÍNCRONA PARA TRAER PRODUCTOS
 async function cargarProductos() {

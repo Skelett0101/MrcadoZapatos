@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,16 +27,19 @@
         .banner-container {
             width: 100%;
             max-width: 1000px;
-            height: 400px; /* Ajusta la altura según necesites */
-            border-radius: 80px; /* Radio grande para el efecto "cápsula" */
-            overflow: hidden; /* Asegura que la imagen no se salga de los bordes redondeados */
+            height: 400px;
+            /* Ajusta la altura según necesites */
+            border-radius: 80px;
+            /* Radio grande para el efecto "cápsula" */
+            overflow: hidden;
+            /* Asegura que la imagen no se salga de los bordes redondeados */
             position: relative;
-            
+
             /* IMAGEN DE FONDO: Reemplaza la URL con tu propia imagen */
-            background-image: url('https://images.unsplash.com/photo-1515347619252-?q=80&w=2069&auto=format&fit=crop'); 
+            background-image: url('https://images.unsplash.com/photo-1515347619252-?q=80&w=2069&auto=format&fit=crop');
             background-size: cover;
             background-position: center bottom;
-            
+
             /* Flexbox para centrar la tarjeta de login */
             display: flex;
             justify-content: center;
@@ -48,7 +52,7 @@
             padding: 25px 30px;
             border-radius: 6px;
             width: 320px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         /* Estilos del Formulario */
@@ -87,7 +91,8 @@
         .btn-submit {
             width: 100%;
             padding: 12px;
-            background-color: #2b2b2b; /* Gris oscuro casi negro */
+            background-color: #2b2b2b;
+            /* Gris oscuro casi negro */
             color: white;
             border: none;
             border-radius: 4px;
@@ -108,33 +113,42 @@
             text-decoration: underline;
             display: inline-block;
         }
-        
+
         .forgot-password:hover {
             color: #000;
         }
     </style>
 </head>
+
 <body>
 
     <div class="banner-container">
         <div class="login-card">
-            <form>
+
+            <form id="loginForm">
+
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="Value">
+                    <input type="email" id="email" placeholder="Value" required>
                 </div>
 
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" id="password" placeholder="Value">
+                    <input type="password" id="password" placeholder="Value" required>
                 </div>
 
                 <button type="submit" class="btn-submit">Sign In</button>
 
-                
             </form>
+
+            <script src="registro.js"></script>
+
+
         </div>
     </div>
 
+    <script src="../JavaScript/log.js"></script>
+
 </body>
+
 </html>

@@ -11,4 +11,6 @@ router.post('/', controller.crearProducto);
 // DELETE /api/productos/:id
 router.delete('/:id', controller.eliminarProducto);
 
+
+
 module.exports = router;

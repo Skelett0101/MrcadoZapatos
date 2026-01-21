@@ -38,6 +38,7 @@ app.use(express.static(path.join(__dirname, 'Public')));
 */
 app.use('/api/productos', productosRoutes);
 app.use('/api/carrito', carritoRoutes);
+app.use('/api/usuarios', require('./routes/usuariosRoutes'));
 
 
 /*

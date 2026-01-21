@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            background: #f4f4f4;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .card {
+            background: #fff;
+            padding: 30px;
+            width: 350px;
+            border-radius: 6px;
+            box-shadow: 0 4px 15px rgba(0,0,0,.1);
+        }
+
+        .card h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 12px;
+        }
+
+        button {
+            background: #000;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="card">
+    <h2>Registro</h2>
+
+    <form id="registroForm">
+        <input type="text" id="nombre" placeholder="Nombre" required>
+        <input type="text" id="domicilio" placeholder="Domicilio" required>
+        <input type="email" id="correo" placeholder="Correo" required>
+        <input type="password" id="contrasena" placeholder="Contraseña" required>
+
+        <button type="submit">Registrarse</button>
+    </form>
+</div>
+
+<script src="../JavaScript/registro.js"></script>
+</body>
+</html>
