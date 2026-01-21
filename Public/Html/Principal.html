@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShoeShop - Tu tienda de calzado</title>
+    <link rel="stylesheet" href="../Css/cPrincipal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- CABECERA DE LA PÁGINA - Barra de navegación superior -->
+    <header>
+        <!-- CONTENEDOR PRINCIPAL con clase para estilos -->
+        <div class="container navbar">
+            <!-- LOGO DE LA MARCA - Icono de huella de zapato -->
+            <div class="logo">
+                <!-- ICONO DE FONT AWESOME - Huella de zapato -->
+                <i class="fa-solid fa-shoe-prints"></i>
+            </div>
+
+            <!-- MENÚ DE NAVEGACIÓN PRINCIPAL -->
+            <nav>
+                <!-- LISTA NO ORDENADA de enlaces de navegación -->
+                <ul class="nav-links">
+                    <!-- ELEMENTO DE LISTA - Enlace a HOME (página principal) -->
+                    <li><a href="#" class="active">HOME</a></li>
+                    <!-- ELEMENTO DE LISTA - Enlace a CATEGORÍAS -->
+                    <li><a href="#">CATEGORIES</a></li>
+                </ul>
+            </nav>
+
+            <!-- ICONOS DE ACCIONES DEL USUARIO -->
+            <div class="user-actions">
+                <!-- ICONO: Lupa para búsqueda -->
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <!-- ICONO: Carrito de compras -->
+                <i class="fa-solid fa-cart-shopping"></i>
+                <!-- ICONO: Usuario/perfil -->
+                <i class="fa-solid fa-user"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- SECCIÓN HERO - Portada principal con imagen y búsqueda -->
+    <section class="hero container">
+        <!-- CONTENIDO DE TEXTO Y BÚSQUEDA -->
+        <div class="hero-content">
+            <!-- TÍTULO PRINCIPAL de la sección hero -->
+            <h1>Tu tienda única para calzado con estilo</h1>
+            <!-- SUBTÍTULO o descripción -->
+            <p>Navegue por estilo, marca o artículos en oferta!</p>
+
+            <!-- CAJA DE BÚSQUEDA -->
+            <div class="search-box">
+                <!-- CONTENEDOR DEL INPUT con icono -->
+                <div class="input-wrapper">
+                    <!-- ICONO DE BÚSQUEDA dentro del input -->
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <!-- CAMPO DE TEXTO para escribir la búsqueda -->
+                    <input type="text" placeholder="Buscar...">
+                </div>
+                <!-- BOTÓN PARA EJECUTAR LA BÚSQUEDA -->
+                <button class="search-btn">Search</button>
+            </div>
+        </div>
+
+        <!-- IMAGEN DECORATIVA DE LA SECCIÓN HERO -->
+        <div class="hero-image">
+            <!-- IMAGEN DE ZAPATOS DE TACÓN - URL externa -->
+            <img src="https://img.freepik.com/vector-premium/dibujo-linea-continua-zapatos-tacon-alto-linea-arte-zapatos-mujer-aislados-blanco_500223-533.jpg"
+                alt="Zapatos de tacón estilo dibujo">
+            <!-- ATRIBUTO alt: Texto alternativo para accesibilidad -->
+        </div>
+    </section>
+
+    <!-- PRIMERA SECCIÓN DE PRODUCTOS - Productos en tendencia -->
+    <section class="products-section">
+        <div class="section-header">
+            <div class="container">
+                <h2><i class="fa-solid fa-shoe-prints"></i> Productos en tendencia</h2>
+            </div>
+        </div>
+
+        <!-- CONTENEDOR GENERAL DEL CARRUSEL -->
+        <div class="carousel-container">
+
+            <!-- BOTÓN IZQUIERDO -->
+            <button class="carousel-btn left" id="btnPrev">
+                &#10094;
+            </button>
+
+            <!-- VENTANA VISIBLE (recorta lo que se sale) -->
+            <div class="carousel-viewport">
+
+                <!--
+                TRACK DEL CARRUSEL
+                Aquí JavaScript insertará dinámicamente los productos
+            -->
+                <div class="carousel-track" id="carouselTrack">
+                    <!-- PRODUCTOS GENERADOS CON JS -->
+                </div>
+
+            </div>
+
+            <!-- BOTÓN DERECHO -->
+            <button class="carousel-btn right" id="btnNext">
+                &#10095;
+            </button>
+
+        </div>
+    </section>
+
+
+    <!-- SEGUNDA SECCIÓN DE PRODUCTOS - Productos clásicos -->
+    <section class="products-section">
+        <!-- CABECERA CON CLASE DIFERENTE (accent-blue) para variar el estilo -->
+        <div class="section-header accent-blue">
+            <div class="container">
+                <h2><i class="fa-solid fa-shoe-prints"></i> Clásicos</h2>
+            </div>
+        </div>
+
+        <!-- REJILLA DE PRODUCTOS CLÁSICOS -->
+        <div class="container product-grid">
+            <!-- PRIMER PRODUCTO CLÁSICO - Mismas imágenes que la sección anterior -->
+            <article class="product-card">
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=400&auto=format&fit=crop"
+                    alt="Running Shoes">
+                <div class="card-info">
+                    <div class="row-top">
+                        <h3>Lightweight running shoes</h3>
+                        <i class="fa-solid fa-heart fav-icon"></i>
+                    </div>
+                    <div class="row-bottom">
+                        <span class="price">$ 59.99 <span class="old-price">$ 74.99</span></span>
+                        <!-- ESTE SÍ TIENE BOTÓN "AGREGAR" -->
+                        <button class="add-btn">Agregar</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- SEGUNDO PRODUCTO CLÁSICO -->
+            <article class="product-card">
+                <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=400&auto=format&fit=crop"
+                    alt="Leather Boots">
+                <div class="card-info">
+                    <div class="row-top">
+                        <h3>Leather Boots</h3>
+                        <i class="fa-solid fa-heart fav-icon"></i>
+                    </div>
+                    <div class="row-bottom">
+                        <span class="price">$ 89.99 <span class="old-price">$ 109.99</span></span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- TERCER PRODUCTO CLÁSICO -->
+            <article class="product-card">
+                <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?q=80&w=400&auto=format&fit=crop"
+                    alt="Stylish Sandals">
+                <div class="card-info">
+                    <div class="row-top">
+                        <h3>Stylish sandals</h3>
+                        <i class="fa-solid fa-heart fav-icon"></i>
+                    </div>
+                    <div class="row-bottom">
+                        <span class="price">$ 29.99 <span class="old-price">$ 39.99</span></span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        <!-- CONTENIDO DEL FOOTER -->
+        <div class="container footer-content">
+            <!-- SECCIÓN DE MARCA Y REDES SOCIALES -->
+            <div class="brand">
+                <!-- NOMBRE DE LA MARCA -->
+                <h4>ShoeShop</h4>
+                <!-- ENLACES A REDES SOCIALES -->
+                <div class="socials">
+                    <!-- ENLACE A FACEBOOK (placeholder #) -->
+                    <a href="#">Facebook</a>
+                    <!-- ENLACE A INSTAGRAM (placeholder #) -->
+                    <a href="#">Instagram</a>
+                    <!-- ENLACE A PINTEREST (placeholder #) -->
+                    <a href="#">Pinterest</a>
+                </div>
+            </div>
+            <!-- SECCIÓN DE DERECHOS DE AUTOR -->
+            <div class="copyright">
+                <!-- SÍMBOLO DE COPYRIGHT y año -->
+                <p>&copy; ShoeShop 2023</p>
+            </div>
+        </div>
+    </footer>
+<script src="../JavaScript/principal.js"></script>
+</body>
+
+</html>
