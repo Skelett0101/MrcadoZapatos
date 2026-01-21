@@ -26,8 +26,6 @@ db.run(`
 
 module.exports = db;
 
-DROP TABLE IF EXISTS productos;
-
 db.run(`CREATE TABLE IF NOT EXISTS USUARIO (
     id_usuario INTEGER PRIMARY KEY AUTOINCREMENT,
     Nombre_usu TEXT NOT NULL,

@@ -3,18 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Carrito</title>
-    <link rel="stylesheet" href="carrito.css">
+    <link rel="stylesheet" href="../Css/carrito.css">
 </head>
 <body>
 
+<!-- ======================
+    Contenedor principal
+    Aquí se divide la pantalla en dos partes:
+    - Carrito (izquierda)
+    - Resumen del pedido (derecha)
+        ====================== -->
 <div class="container">
 
-    <!-- SECCIÓN CARRITO -->
+    <!-- ======================
+         SECCIÓN DEL CARRITO
+         ====================== -->
     <section class="cart">
-        <a href="#" class="back">← Continuar comprando</a>
+
+        <!-- Enlace para regresar a la tienda -->
+        <a href="Principal.html" class="back">← Continuar comprando</a>
         <h1>Mi carrito de compras</h1>
 
-        <!-- ITEM (se repetirá dinámicamente) -->
+        
+        <!-- ======================
+            PRODUCTO DEL CARRITO
+            Este bloque se va a repetir por cada producto
+            cuando se conecte con la base de datos
+        ====================== -->
         <div class="item">
             <img src="" alt="Producto">
 
