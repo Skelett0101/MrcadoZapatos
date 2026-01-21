@@ -25,3 +25,53 @@ db.run(`
 `);
 
 module.exports = db;
+
+DROP TABLE IF EXISTS productos;
+
+db.run(`CREATE TABLE IF NOT EXISTS USUARIO (
+    id_usuario INTEGER PRIMARY KEY AUTOINCREMENT,
+    Nombre_usu TEXT NOT NULL,
+    Apat TEXT NOT NULL,
+    Amat TEXT NOT NULL,
+    Domicilio TEXT NOT NULL,
+    Correo TEXT NOT NULL,
+    Contrasena TEXT NOT NULL)
+`);
+
+
+
+db.run(`
+        CREATE TABLE IF NOT EXISTS Producto (
+            id_producto INTEGER PRIMARY KEY AUTOINCREMENT,
+            Nombre_Pro TEXT NOT NULL,
+            Costo REAL NOT NULL,  -- DECIMAL 
+            MARCA TEXT NOT NULL,
+            TALLA TEXT NOT NULL,
+            CATEGORIA TEXT NOT NULL,
+            IMAGEN TEXT NOT NULL
+        )
+    `);
+
+
+
+db.run(`
+        CREATE TABLE IF NOT EXISTS TARJETA (
+            id_TARJETA INTEGER PRIMARY KEY AUTOINCREMENT,
+            id_usuario INTEGER NOT NULL,
+            FECHA TEXT NOT NULL,
+            CVV TEXT NOT NULL,
+            NUMERO_TARJETA TEXT NOT NULL,
+            FOREIGN KEY (id_usuario) REFERENCES USUARIO(id_usuario)
+        )
+    `);
+
+    db.run(`
+    CREATE TABLE IF NOT EXISTS CARRO_COMPRA (
+        Id_compra INTEGER PRIMARY KEY AUTOINCREMENT,
+        id_usuario INTEGER NOT NULL,
+        total REAL NOT NULL,       
+        CVV TEXT NOT NULL,
+        Fecha_compra TEXT NOT NULL,
+        FOREIGN KEY (id_usuario) REFERENCES USUARIO(id_usuario)
+    )
+`);
